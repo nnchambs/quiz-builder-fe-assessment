@@ -4,10 +4,10 @@ import QuestionCard from './QuestionCard.jsx';
 
 class Questions extends React.Component {
   render() {
-    const questions = this.props.questions ? this.props.questions : null
-    const title = questions ? questions.title : null
+    const questions = this.props.questions
+    const title = questions.title
     console.log('questions', questions)
-    const questionCards = !questions ? <div>Loading quizzies, be patient...</div> : questions.questions.map(m => {
+    const questionCards = questions.questions.map(m => {
       return(
         <QuestionCard
         id={m.id}
@@ -19,7 +19,7 @@ class Questions extends React.Component {
     return(
       <div>
         {title}
-          {questionCards}
+        {questionCards}
         {this.props.questions ? <input type="submit" /> : null}
       </div>
     )

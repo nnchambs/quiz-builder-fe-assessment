@@ -14,11 +14,11 @@ class App extends Component {
   }
 
   componentDidMount() {
-    this.getQuizData();
+    this.getQuiz();
   }
 
-  getQuizData() {
-    axios.get('http://localhost:3001/quizzes')
+  getQuiz() {
+    axios.get('/quizzes')
       .then((response) => {
         return response
       })
@@ -36,7 +36,7 @@ class App extends Component {
     return (
       <div className="App">
         <div className="App-body">
-          <Questions questions={quizData}/>
+          {quizData ? <Questions questions={quizData}/> : <div>Loading quizzies, be patient...</div>}
         </div>
       </div>
     );

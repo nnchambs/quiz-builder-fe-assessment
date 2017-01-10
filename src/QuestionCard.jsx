@@ -10,10 +10,10 @@ const QuestionCard = ({ questionTitle, answers, id}) => {
   })
   return(
   <div>
-    <h3 key={id}>{questionTitle ? questionTitle : null }</h3>
-      <form>
-        {answerButtons}
-      </form>
+    <h3 key={id}>{questionTitle}</h3>
+    <form>
+      {answerButtons}
+    </form>
   </div>
 )}
 
