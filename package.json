@@ -2,7 +2,7 @@
   "name": "quiz-builder-frontend",
   "version": "0.1.0",
   "private": true,
-  "proxy": "http://localhost:3001/",
+  "proxy": "http://localhost:3000/",
   "devDependencies": {
     "react-scripts": "0.8.5"
   },

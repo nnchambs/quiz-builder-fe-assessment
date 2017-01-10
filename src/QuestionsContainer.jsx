@@ -20,7 +20,7 @@ class Questions extends React.Component {
       <div>
         {title}
           {questionCards}
-        <input type="submit" />
+        {this.props.questions ? <input type="submit" /> : null}
       </div>
     )
   }
