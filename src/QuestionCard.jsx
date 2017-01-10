@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 
 
-const QuestionCard = (props) => {
+const QuestionCard = ({ questionTitle}) => {
   return(
-  <h3>{ this.props.questionTitle ? this.props.questionTitle : null }</h3>
+  <h3>{questionTitle ? questionTitle : null }</h3>
 )}
 
 export default QuestionCard

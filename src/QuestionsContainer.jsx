@@ -10,6 +10,7 @@ class Questions extends React.Component {
       const questionCards = !questions ? <div>Loading...</div> : questions.questions.map(m => {
         return(
           <QuestionCard
+          key={m.id}
           questionTitle={m.title}
           />
         )
