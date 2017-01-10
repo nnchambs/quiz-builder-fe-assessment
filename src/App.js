@@ -25,12 +25,10 @@ class App extends Component {
       .then((response) => {
         this.setState({quizzies: response})
       })
+      .catch(error => console.error('Error retrieving quizzies from API', error.message))
   }
 
    render() {
-    if (this.state.quizzies === []) {
-      return( <div>Loading quizzies...</div> )
-    } else {
     let quizData
     if(this.state.quizzies.data) {
       quizData = this.state.quizzies.data.quizzes[0]
@@ -42,7 +40,6 @@ class App extends Component {
         </div>
       </div>
     );
-    }
   }
 }
 

@@ -1,9 +1,20 @@
 import React, { Component } from 'react';
 
 
-const QuestionCard = ({ questionTitle}) => {
+const QuestionCard = ({ questionTitle, answers, id}) => {
+  console.log('answers', answers)
+  const answerButtons = answers.map(a => {
+    return(
+      <label><input type="radio" name="answer" />{a.title}<br></br></label>
+    )
+  })
   return(
-  <h3>{questionTitle ? questionTitle : null }</h3>
+  <div>
+    <h3 key={id}>{questionTitle ? questionTitle : null }</h3>
+      <form>
+        {answerButtons}
+      </form>
+  </div>
 )}
 
 export default QuestionCard

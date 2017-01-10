@@ -4,24 +4,28 @@ import QuestionCard from './QuestionCard.jsx';
 
 class Questions extends React.Component {
   render() {
-      debugger;
-      const questions = this.props.questions ? this.props.questions : null
-      const title = questions ? questions.title : null
-      const questionCards = !questions ? <div>Loading...</div> : questions.questions.map(m => {
-        return(
-          <QuestionCard
-          key={m.id}
-          questionTitle={m.title}
-          />
-        )
-      })
-  return(
-    <div>
-      {title}
-      {questionCards}
-    </div>
-  )
-}
+    const questions = this.props.questions ? this.props.questions : null
+    const title = questions ? questions.title : null
+    console.log('questions', questions)
+    const questionCards = !questions ? <div>Loading quizzies, be patient...</div> : questions.questions.map(m => {
+      return(
+        <QuestionCard
+        id={m.id}
+        questionTitle={m.title}
+        answers ={m.answers}
+        />
+      )
+    })
+    return(
+      <div>
+        {title}
+          <form>
+            {questionCards}
+          <input type="submit" />
+        </form>
+      </div>
+    )
+  }
 }
 
 export default Questions
