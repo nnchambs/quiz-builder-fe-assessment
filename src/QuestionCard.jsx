@@ -5,7 +5,7 @@ const QuestionCard = ({ questionTitle, answers, id}) => {
   console.log('answers', answers)
   const answerButtons = answers.map(a => {
     return(
-      <label><input type="radio" name="answer" />{a.title}<br></br></label>
+      <label><input type="radio" value={a.score} name="answer" />{a.title}<br></br></label>
     )
   })
   return(

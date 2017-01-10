@@ -19,10 +19,8 @@ class Questions extends React.Component {
     return(
       <div>
         {title}
-          <form>
-            {questionCards}
-          <input type="submit" />
-        </form>
+          {questionCards}
+        <input type="submit" />
       </div>
     )
   }
