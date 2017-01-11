@@ -15,9 +15,9 @@ class Questions extends React.Component {
       return(
         <QuestionCard
         id={m.id}
+        key={m.id}
         questionTitle={m.title}
         answers ={m.answers}
-        setScore={this.props.setScore}
         />
       )
     })
