@@ -10,8 +10,10 @@ class App extends Component {
     super()
     this.state = {
       quizzies: [],
+      scoreCounter: {}
+
+      }
     }
-  }
 
   componentDidMount() {
     this.getQuiz();
@@ -28,6 +30,11 @@ class App extends Component {
       .catch(error => console.error('Error retrieving quizzies from API', error.message))
   }
 
+  setScore(score, answerId) {
+    const newScore = Object.assign(this.state.scoreCounter, {[answerId]: score })
+    this.setState({scoreCounter: newScore})
+  }
+
    render() {
     let quizData
     if(this.state.quizzies.data) {
@@ -36,7 +43,7 @@ class App extends Component {
     return (
       <div className="App">
         <div className="App-body">
-          {quizData ? <Questions questions={quizData}/> : <div>Loading quizzies, be patient...</div>}
+          {quizData ? <Questions questions={quizData} setScore={this.setScore.bind(this)}/> : <div>Loading quizzies, be patient...</div>}
         </div>
       </div>
     );

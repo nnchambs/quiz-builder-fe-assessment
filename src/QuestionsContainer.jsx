@@ -3,6 +3,10 @@ import QuestionCard from './QuestionCard.jsx';
 
 
 class Questions extends React.Component {
+  constructor() {
+    super()
+  }
+
   render() {
     const questions = this.props.questions
     const title = questions.title
@@ -13,6 +17,7 @@ class Questions extends React.Component {
         id={m.id}
         questionTitle={m.title}
         answers ={m.answers}
+        setScore={this.props.setScore}
         />
       )
     })
@@ -20,7 +25,7 @@ class Questions extends React.Component {
       <div>
         {title}
         {questionCards}
-        {this.props.questions ? <input type="submit" /> : null}
+        <input type="submit" />
       </div>
     )
   }
