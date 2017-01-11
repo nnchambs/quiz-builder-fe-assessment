@@ -10,27 +10,27 @@ class App extends Component {
     super()
     this.state = {
       quizzies: [],
+      scoreCounter: {}
+
+      }
     }
-  }
 
   componentDidMount() {
-    this.getQuizData();
+    this.getQuiz();
   }
 
-  getQuizData() {
-    axios.get('http://localhost:3001/quizzes')
+  getQuiz() {
+    axios.get('/quizzes')
       .then((response) => {
         return response
       })
       .then((response) => {
         this.setState({quizzies: response})
       })
+      .catch(error => console.error('Error retrieving quizzies from API', error.message))
   }
 
    render() {
-    if (this.state.quizzies === []) {
-      return( <div>Loading quizzies...</div> )
-    } else {
     let quizData
     if(this.state.quizzies.data) {
       quizData = this.state.quizzies.data.quizzes[0]
@@ -38,11 +38,10 @@ class App extends Component {
     return (
       <div className="App">
         <div className="App-body">
-          <Questions questions={quizData}/>
+          {quizData ? <Questions questions={quizData} /> : <div>Loading quizzies, be patient...</div>}
         </div>
       </div>
     );
-    }
   }
 }
 
